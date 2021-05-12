@@ -5,8 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/hello")
 public class HelloWorldController {
 
 	@RequestMapping("/showForm")
@@ -23,17 +25,35 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("/processFormVersionTwo")
-	public String processFormVersionTwo(HttpServletRequest http, Model model)
+	/* First technique to read the form data - HttpServletRequest*/
+	public String processFormVersionTwo(HttpServletRequest http, Model model) 
 	{
 
-		//Read the request parameter from HTML form
-		String theName=http.getParameter("studentName");
+		//Read the request parameter from HTML form when using HttpServletRequest
+		String theName=http.getParameter("studentName"); 
 		
 		//Convert the data to Capital letters
 		theName=theName.toUpperCase();
 		
 		//Create the message 
 		String result="Yo! "+theName;
+		
+		//Add Message to the model
+		model.addAttribute("message",result);
+		
+		//Return the view
+		return "helloworld";
+	}
+	
+	@RequestMapping("/processFormVersionThree")
+	/* Second technique to read the form data - @RequestParam*/
+	public String processFormVersionTwo(@RequestParam("studentName") String theName, Model model)
+	{		
+		//Convert the data to Capital letters
+		theName=theName.toUpperCase();
+		
+		//Create the message 
+		String result="Hello! "+theName;
 		
 		//Add Message to the model
 		model.addAttribute("message",result);
