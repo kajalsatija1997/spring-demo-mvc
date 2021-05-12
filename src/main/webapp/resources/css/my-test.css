@@ -1,0 +1,21 @@
+body {
+     background-image: url("../images/bg.jpg");
+      background-repeat: no-repeat;
+      background-size: auto;
+}
+
+h2 {
+    color: #68BD44;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+img
+{
+	height: 20%;
+	width: 20%;
+}

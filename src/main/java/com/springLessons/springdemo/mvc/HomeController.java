@@ -9,7 +9,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String showMyPage()
 	{
-		return "main-menu";
+		return "main-menu-css-js";
 	}
 
 }
