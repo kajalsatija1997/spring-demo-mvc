@@ -8,5 +8,10 @@
 
 <a href="hello/showForm">Hello World form</a>
 
+<hr>
+
+<a href="${pageContext.request.contextPath}/student/showform">Student form</a>
+
+<hr>
 </body>
 </html>
