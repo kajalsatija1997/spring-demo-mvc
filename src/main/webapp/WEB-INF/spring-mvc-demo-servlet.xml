@@ -33,6 +33,11 @@
 	 <!-- To access static resources in a Spring MVC(images, css, JavaScript files etc.) -->
 	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
 
+	<!-- Load custom messages resources -->
+	<bean id="messageSource" 
+	class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basenames" value="resources/messages"></property>
+	</bean>
 </beans>
 
 
